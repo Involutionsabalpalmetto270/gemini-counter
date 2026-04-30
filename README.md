@@ -1,9 +1,6 @@
 # 🔢 Gemini Counter v2.0.0
 
 > A lightweight Chrome extension that shows **exact token counts**, a live context bar, output tokens, and model info — right inside [gemini.google.com](https://gemini.google.com).
-
-![Gemini Counter in action](assets/screenshot.png)
-
 ---
 
 ## ✨ Features

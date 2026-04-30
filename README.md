@@ -23,7 +23,8 @@
 
 The counter widget appears in Gemini's input bar, showing estimated input tokens, a progress bar, and the active model — all without leaving the page.
 
-![Uploading Screenshot 2026-04-30 at 1.34.42 PM.png…]()
+<img width="1280" height="226" alt="Screenshot 2026-04-30 at 1 34 42 PM Large" src="https://github.com/user-attachments/assets/4acdb5ef-2804-4beb-9c5d-40752258bb12" />
+
 
 
 ---

